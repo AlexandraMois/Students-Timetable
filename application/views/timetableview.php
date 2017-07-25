@@ -2,15 +2,15 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-<link rel="stylesheet" href="/framework/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/framework/assets/css/style.css">
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/style.css">
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
   integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
   crossorigin="anonymous">
 </script>
-<script type="text/javascript" src="/framework/assets/js/bootstrap.js"></script>	
-<script type="text/JavaScript" src="/framework/assets/js/reset.js"></script>
+<script type="text/javascript" src="/assets/js/bootstrap.js"></script>	
+<script type="text/JavaScript" src="/assets/js/reset.js"></script>
 
 </head>
 

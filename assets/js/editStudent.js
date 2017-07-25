@@ -4,7 +4,7 @@ function saveStudent(studentId) {
 
 	modal.find('.errors').html('').removeClass('eroare-edit');
 
-	$.post( "/framework/index.php/students/update", 
+	$.post( "/index.php/students/update", 
 		$("#form-update-student-" + studentId).serialize() 
 	)
 	  .done(function( data ) {
