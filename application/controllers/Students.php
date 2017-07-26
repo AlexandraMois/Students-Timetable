@@ -193,11 +193,13 @@ class Students extends CI_Controller {
 					echo json_encode($response);
 					return;
 				}
-				// else{
-					// echo "Problema";
-					// echo json_encode($response);
-					// return;
-				// }
+				else{
+					$errorArray[] = "Nu ati facut nicio modificare.";
+					$response['status'] = 'errors';
+					$response['errors'] = $errorArray;
+					echo json_encode($response);
+					return;
+				}
 			}
 
 		}
