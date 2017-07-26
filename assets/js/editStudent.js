@@ -10,7 +10,7 @@ function saveStudent(studentId) {
 	  .done(function( data ) {
 	  	response = JSON.parse(data);
 	  	if (response.status == 'success') {
-	  		modal.modal("hide");
+	  		modal.removeClass('fade').modal("hide");
 			$('#status-update-student').removeClass('hidden').addClass('reusit').html('Studentul a fost salvat cu succes!');
 			
 	  	} else {
