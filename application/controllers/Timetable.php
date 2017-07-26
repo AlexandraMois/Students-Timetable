@@ -5,6 +5,7 @@ class Timetable extends CI_Controller{
 
 	public function index()
 	{
+		$this->load->view('menuview');
 		$this->load->model('Timetable_model');
 		// var_dump($this->input->post());
 		// var_dump($this->input->get());
@@ -20,7 +21,7 @@ class Timetable extends CI_Controller{
 			$data['timetable'] = $this->Timetable_model->getTimetable();
 		}
 
-		$this->load->view('menuview');
+		
 		$this->load->view('timetableview',$data);
 
 	}

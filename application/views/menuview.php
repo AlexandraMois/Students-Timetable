@@ -1,5 +1,3 @@
-<html>
-<head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
@@ -11,19 +9,12 @@
 <script type="text/JavaScript" src=/assets/js/reset.js></script>
 <script type="text/JavaScript" src=/assets/js/editStudent.js></script>
 
-</head>
 
-
-
-<body>
 
 <div class="container">
-
-	<div class="menu-bar">
-		<a href="students">Studenti</a>
-		<a href="timetable">Orar</a>
+	<div class="row">
+		<div class="col-lg-4">
+			<a class="logo" href="http://uvt.ro"><img src="https://www.uvt.ro/res/img/logo.26021301.png" /></a>
+		</div>
 	</div>
-
 </div>
-</body>			
-</html>

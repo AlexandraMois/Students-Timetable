@@ -1,29 +1,17 @@
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/style.css">
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous">
-</script>
-<script type="text/javascript" src="/assets/js/bootstrap.js"></script>	
-<script type="text/JavaScript" src="/assets/js/reset.js"></script>
-
-</head>
-
-<body>
+<div class="menu-bar">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-4">
+				<a href="students">Studenti</a>
+				<a class="active" href="timetable">Orar</a>
+			</div>
+		</div>
+	</div>	
+</div>
 
 <div class="container">
 	<div class="row">
-		<div class="col-lg-4">
-			<a class="logo" href="http://uvt.ro"><img src="https://www.uvt.ro/res/img/logo.26021301.png" /></a>
-		</div>
-	</div>
-	<hr />
-	<div class="row">
+		<div class="col-lg-12">
 
 			<?php  
 
@@ -36,33 +24,55 @@
 			?>
 
 
-				<h5>Orar:</h5>
-				<h5>Cautare:</h5>
+				<h3>Orar:</h3>
+						
+				<div class="cautare-form">
+				<span>Cautare:</span>
 				<form method='get' id="filter-form">
-				
-					<select name='year' id='my_select1' data-default-value=0>
-						<option value="0" <?php if($yearFilter == 0){?> selected="selected"<?php } ?>>Anul</option>
-						<?php for( $i=1; $i<=4; $i++){?>
-						<option value="<?php echo $i;?>" <?php if($yearFilter == $i){?> selected="selected" <?php } ?>><?php echo $i;?></option>
-						<?php } ?>
-					</select>
-					<select name='group_number' id='my_select2' data-default-value=0 >
-						<option value="0" <?php if($groupFilter == 0){?> selected="selected"<?php } ?>>Grupa</option>
-						<?php for( $n=1; $n<=6; $n++){?>
-						<option value="<?php echo $n;?>" <?php if($groupFilter == $n){?> selected="selected" <?php } ?>><?php echo $n;?></option>
-						<?php } ?>
-					</select>
-					<select name='day_of_week' id='my_select3' data-default-value=0>
-						<option value="0" <?php if($dayFilter == 0){?> selected="selected"<?php } ?>>Ziua</option>
-						<?php foreach($dayArray as $key => $value){ ?>
-   						<option value="<?=$key?>" <?php if($dayFilter == $key){?> selected="selected" <?php } ?>><?php echo $value;?></option>
-						<?php } ?>
-					</select><br>
-					<input type="submit" value="Filtreaza">
-					<div id="reset">
-				    	<input type="button" value="Reseteaza"/>
-				   	</div>
+					<div class="row">
+						<div class="col-lg-9">
+							<div class="row">
+								<div class="col-lg-4">
+									<select name='year' id='my_select1' data-default-value=0>
+										<option value="0" <?php if($yearFilter == 0){?> selected="selected"<?php } ?>>Anul</option>
+										<?php for( $i=1; $i<=4; $i++){?>
+										<option value="<?php echo $i;?>" <?php if($yearFilter == $i){?> selected="selected" <?php } ?>><?php echo $i;?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="col-lg-4">
+									<select name='group_number' id='my_select2' data-default-value=0 >
+										<option value="0" <?php if($groupFilter == 0){?> selected="selected"<?php } ?>>Grupa</option>
+										<?php for( $n=1; $n<=6; $n++){?>
+										<option value="<?php echo $n;?>" <?php if($groupFilter == $n){?> selected="selected" <?php } ?>><?php echo $n;?></option>
+										<?php } ?>
+									</select>
+								</div>
+								<div class="col-lg-4">
+									<select name='day_of_week' id='my_select3' data-default-value=0>
+										<option value="0" <?php if($dayFilter == 0){?> selected="selected"<?php } ?>>Ziua</option>
+										<?php foreach($dayArray as $key => $value){ ?>
+				   						<option value="<?=$key?>" <?php if($dayFilter == $key){?> selected="selected" <?php } ?>><?php echo $value;?></option>
+										<?php } ?>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-3">
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="submit" class="btn-actiuni editeaza" value="Filtreaza">
+								</div>
+								<div class="col-lg-6">
+									<div id="reset">
+								    	<input type="button" class="btn-actiuni sterge" value="Reseteaza"/>
+								   	</div>
+								</div>
+							</div>
+						</div>
+					</div>	
 				</form>
+				</div>
 	<?php
 		$currentDate = date("N");
 		$currentHour = date("H");
@@ -105,19 +115,22 @@
 
 
 	</table>
-		<br>
-
-			<form method="post">
-				<h5>Introducere disciplina noua:</h5>
-				<input placeholder="An" type="text" name="year"><br>
-				<input placeholder="Grupa" type="text" name="group_number"><br>
-				<input placeholder="Disciplina" type="text" name="school_discipline"><br>
-				<input placeholder="Zi" type="text" name="day_of_week"><br>
-				<input placeholder="Ora incepere" type="text" name="start"><br>
-				<input placeholder="Ora sfarsit" type="text" name="stop"><br>
-				<input placeholder="Sala" type="text" name="classroom"><br>
-				<input type="submit" value="Trimite">
-			</form>
+	<br>
+			<div class="row">
+				<div class="col-lg-5">
+					<form method="post">
+						<h3>Introducere disciplina noua:</h3>
+						<input placeholder="An" type="text" name="year"><br>
+						<input placeholder="Grupa" type="text" name="group_number"><br>
+						<input placeholder="Disciplina" type="text" name="school_discipline"><br>
+						<input placeholder="Zi" type="text" name="day_of_week"><br>
+						<input placeholder="Ora incepere" type="text" name="start"><br>
+						<input placeholder="Ora sfarsit" type="text" name="stop"><br>
+						<input placeholder="Sala" type="text" name="classroom"><br>
+						<input type="submit" value="Trimite">
+					</form>
+				</div>
+			</div>
 			
 		<?php
 
@@ -143,10 +156,6 @@
 
 
 		</div>
-
+		</div>	
 	  </div>
 	</div>
-
-</body>
-
-</html>

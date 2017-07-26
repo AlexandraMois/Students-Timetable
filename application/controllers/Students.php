@@ -7,6 +7,7 @@ class Students extends CI_Controller {
 
 	public function index()
 	{
+		$this->load->view('menuview');
 
 		$this->load->model('Students_model');
 
@@ -39,7 +40,7 @@ class Students extends CI_Controller {
 			$data['students'] = $this->Students_model->getStudents();
 		}
 
-		$this->load->view('menuview');
+		
 		$this->load->view('studentsformview', $data);
 
 	}
