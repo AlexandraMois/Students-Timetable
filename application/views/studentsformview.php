@@ -103,6 +103,11 @@
 		?>
 		</table>
 		<br>
+		
+		<div class="hidden" id="status-update-student">
+			
+		</div>
+
 		<form method="post" enctype="multipart/form-data">
 			<h5>Introducere student nou:</h5>
 			<input placeholder="Nume" type="text" name="name"><br>
@@ -117,9 +122,7 @@
 			<input type="submit" value="Trimite">
 		</form>
 	
-		<div class="hidden" id="status-update-student">
-			
-		</div>
+		
 		<?php
 
 		if (isset($insertResponse)) {
