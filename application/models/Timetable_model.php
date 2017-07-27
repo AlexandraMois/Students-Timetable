@@ -27,7 +27,7 @@ class Timetable_model extends CI_Model {
 			$this->db->where('day_of_week', $data['day_of_week']);
 		}
 
-		$query = $this->db->get('timetable');
+		$query = $this->db->order_by('year asc , day_of_week asc')->get('timetable');
 		return $query->result_array();
 	}
 

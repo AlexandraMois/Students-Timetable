@@ -75,9 +75,12 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'root',
-	'password' => '',
+	'hostname' => 'timetable.cnjfy4idvtrl.eu-west-2.rds.amazonaws.com',
+	'username' => 'root_timetable',
+	'password' => 'time!table^hard*to#guess',
+	// 'hostname' => 'localhost',
+	// 'username' => 'root',
+	// 'password' => '',
 	'database' => 'test',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
