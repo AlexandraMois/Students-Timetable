@@ -118,17 +118,41 @@
 	<br>
 			<div class="row">
 				<div class="col-lg-5">
-					<form method="post">
-						<h3>Introducere disciplina noua:</h3>
-						<input placeholder="An" type="text" name="year"><br>
-						<input placeholder="Grupa" type="text" name="group_number"><br>
-						<input placeholder="Disciplina" type="text" name="school_discipline"><br>
-						<input placeholder="Zi" type="text" name="day_of_week"><br>
-						<input placeholder="Ora incepere" type="text" name="start"><br>
-						<input placeholder="Ora sfarsit" type="text" name="stop"><br>
-						<input placeholder="Sala" type="text" name="classroom"><br>
-						<input type="submit" value="Trimite">
-					</form>
+					<div class="insert-btn">
+						<input type="button" id="insert" value="Introducere disciplina noua">
+					</div>
+					<div id="form-hidden" style="<?php if(!isset($insertResponse) or ($insertResponse['status'] == 'success')){  ?> display:none; <?php }  ?>">
+						<form method="post">
+							<input placeholder="An" type="text" name="year"><br>
+							<input placeholder="Grupa" type="text" name="group_number"><br>
+							<input placeholder="Disciplina" type="text" name="school_discipline"><br>
+							<input placeholder="Zi" type="text" name="day_of_week"><br>
+							<input placeholder="Ora incepere" type="text" name="start"><br>
+							<input placeholder="Ora sfarsit" type="text" name="stop"><br>
+							<input placeholder="Sala" type="text" name="classroom"><br>
+							<input type="submit" value="Trimite">
+						</form>
+						<div class="response">
+						<?php
+							if (isset($insertResponse)) {
+
+								if($insertResponse['status'] != 'success'){
+								// 	echo "<div class='reusit'>";
+								// 		echo "Orarul a fost introdus cu succes!";
+								// 	echo "</div>";
+								// }
+								// else{
+									foreach ($insertResponse['errors'] as  $value) {
+										echo "<div class='eroare'>";
+											echo $value ."<br>";
+										echo "</div>";
+									}
+								}
+								
+							}
+						?>
+						</div>
+					</div>
 				</div>
 			</div>
 			
@@ -141,13 +165,13 @@
 						echo "Orarul a fost introdus cu succes!";
 					echo "</div>";
 				}
-				else{
-					foreach ($insertResponse['errors'] as  $value) {
-						echo "<div class='eroare'>";
-							echo $value ."<br>";
-						echo "</div>";
-					}
-				}
+			// 	else{
+			// 		foreach ($insertResponse['errors'] as  $value) {
+			// 			echo "<div class='eroare'>";
+			// 				echo $value ."<br>";
+			// 			echo "</div>";
+			// 		}
+			// 	}
 				
 			}
 		

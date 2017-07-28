@@ -137,7 +137,11 @@ $config['subclass_prefix'] = 'MY_';
 |	autoloading (application/config/autoload.php)
 */
 
-$config['composer_autoload'] = 'vendor\autoload.php';
+if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+	$config['composer_autoload'] = 'vendor\autoload.php';
+} else {
+	$config['composer_autoload'] = 'vendor/autoload.php';
+}
 
 /*
 |--------------------------------------------------------------------------

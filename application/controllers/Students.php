@@ -215,7 +215,11 @@ class Students extends CI_Controller {
 		// $completeNameLine = str_replace(" ", "-", $completeName);
 		// $newImageName = $id . "-" . $completeNameLine;
 		if (isset($_FILES['avatar']['tmp_name'])) {
-			$uploadPath = 'uploads\\'. $id . '.jpg';
+			if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+				$uploadPath = 'uploads\\'. $id . '.jpg';
+			}else{
+				$uploadPath = 'uploads/'. $id . '.jpg';
+			}
 			move_uploaded_file($_FILES['avatar']['tmp_name'], $uploadPath);
 			$result = $this->Students_model->imageUpload($id, $uploadPath);
 		}

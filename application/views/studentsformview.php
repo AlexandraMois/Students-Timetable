@@ -106,21 +106,46 @@
 			</div>
 			<div class="row">
 				<div class="col-lg-5">	
-					<form method="post" enctype="multipart/form-data">
-						<h3>Introducere student nou:</h3>
-						<input placeholder="Nume" type="text" name="name"><br>
-						<h5>Imagine profil:</h5>
-						<div class="adauga-poza-profil">
-							<a href="#" class="adauga-imagine"><input type='file' name="avatar"></a>
+					<div class="insert-btn">
+						<input type="button" id="insert" value="Introducere student nou">
+					</div>
+					<div id="form-hidden" style="<?php if(!isset($insertResponse) or ($insertResponse['status'] == 'success')){  ?> display:none; <?php }  ?>">
+						<form method="post" enctype="multipart/form-data">
+							<input placeholder="Nume" type="text" name="name"><br>
+							<h5>Imagine profil:</h5>
+							<div class="adauga-poza-profil">
+								<a href="#" class="adauga-imagine"><input type='file' name="avatar"></a>
+							</div>
+							<input placeholder="An" type="text" name="year"><br>
+							<input placeholder="Grupa" type="text" name="group_number"><br>
+							<input placeholder="Specializarea" type="text" name="section"><br>
+							<h5>Curs pedagogic: </h5>
+							<input type="radio" name="pedagogy_courses" value="0"> NU &nbsp;&nbsp;
+							<input type="radio" name="pedagogy_courses" value="1"> DA<br><br>
+							<input type="submit" value="Trimite">
+						</form>
+						<div class="response">
+							<?php
+							if (isset($insertResponse)) {
+
+								if($insertResponse['status'] != 'success'){
+								// 	echo "<div class='reusit'>";
+								// 		echo "Studentul a fost introdus cu succes!";
+								// 	echo "</div>";
+								// }
+								// else{
+									foreach ($insertResponse['errors'] as  $value) {
+										echo "<div class='eroare'>";
+											echo $value ."<br>";
+										echo "</div>";
+									}
+								}
+								
+							}
+
+							?>
 						</div>
-						<input placeholder="An" type="text" name="year"><br>
-						<input placeholder="Grupa" type="text" name="group_number"><br>
-						<input placeholder="Specializarea" type="text" name="section"><br>
-						<h5>Curs pedagogic: </h5>
-						<input type="radio" name="pedagogy_courses" value="0"> NU &nbsp;&nbsp;
-						<input type="radio" name="pedagogy_courses" value="1"> DA<br><br>
-						<input type="submit" value="Trimite">
-					</form>
+					</div>
 				</div>
 			</div>
 		
@@ -134,29 +159,29 @@
 						echo "Studentul a fost introdus cu succes!";
 					echo "</div>";
 				}
-				else{
-					foreach ($insertResponse['errors'] as  $value) {
-						echo "<div class='eroare'>";
-							echo $value ."<br>";
-						echo "</div>";
-					}
-				}
+			// 	else{
+			// 		foreach ($insertResponse['errors'] as  $value) {
+			// 			echo "<div class='eroare'>";
+			// 				echo $value ."<br>";
+			// 			echo "</div>";
+			// 		}
+			// 	}
 				
-			}
+			// }
+			// var_dump($upload_data);
+			// if(isset($upload_data)){
+			// 	foreach ($upload_data as $key => $value) {
+			// 		echo "<div class='reusit'>";
+			// 			echo $key, $value;
+			// 		echo "</div>";
+			// 	}
+			// }
 
-			if(isset($upload_data)){
-				foreach ($upload_data as $key => $value) {
-					echo "<div class='reusit'>";
-						echo $key, $value;
-					echo "</div>";
-				}
+			// if(isset($error)){
+			// 	echo "<div class='eroare'>";
+			// 		echo $error;
+			// 	echo "</div>";
 			}
-
-			if(isset($error)){
-				echo "<div class='eroare'>";
-				echo $error;
-			echo "</div>";
-		}
 
 	
 		?>

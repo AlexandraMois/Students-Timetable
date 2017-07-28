@@ -20,8 +20,6 @@ class Students_model extends CI_Model {
 		$this->db->insert('users', $data);
 		$last_id=$this->db->insert_id();
 		$result=$this->db->affected_rows();
-		
-		// var_dump($last_id);
 		return $last_id;
 	}
 
@@ -89,16 +87,23 @@ class Students_model extends CI_Model {
 	    $dst = imagecreatetruecolor($newwidth, $newheight);
 	    imagecopyresampled($dst, $src, 0, 0, 0, 0, $newwidth, $newheight, $width, $height);
 
-	    $destPath = 'thumbnails\\' . basename($uploadPath, '.jpg') . '-thumbnail.jpg';
 
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+	    	$destPath = 'thumbnails\\' . basename($uploadPath, '.jpg') . '-thumbnail.jpg';
+	    }else{
+	    	$destPath = 'thumbnails/' . basename($uploadPath, '.jpg') . '-thumbnail.jpg';
+	    }
 	    $output = imagejpeg($dst, $destPath, 100);
 
 	    return $destPath;
 	}
 
 	public function resize_image_Gregwar($uploadPath) {
-
-		$destPath = 'thumbnails\\' . basename($uploadPath, '.jpg') . '-thumbnail.jpg';
+		if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+	    	$destPath = 'thumbnails\\' . basename($uploadPath, '.jpg') . '-thumbnail.jpg';
+	    }else{
+	    	$destPath = 'thumbnails/' . basename($uploadPath, '.jpg') . '-thumbnail.jpg';
+	    }
 
 	    Image::open($uploadPath)
 	     ->cropResize(100, 100)

@@ -82,7 +82,7 @@
 		}
 
 		input[type="button"]{
-			background: #c18d07;
+			background: #b2b2b2;
 			text-align: center;
 			color: #fff;
 			height: 35px;
@@ -95,14 +95,14 @@
 		}
 
 		input[type="button"]:hover{
-			background: #56770f;
+			background: #a0a0a0;
 		}
 
 		.eroare{
 			background: #ad2713;
 			margin: 0px auto;
 			max-width: 100%;
-			width: 50%;
+			width: 100%;
 			color: #fff;
 			text-align: center;
 			z-index: 100;
@@ -167,7 +167,7 @@
 			padding:10px;
 		}
 
-		input[type="submit"].delete-button{
+		/*input[type="submit"].delete-button{
 			background:#ad2713 ;
 			text-align: center;
 			color: #fff;
@@ -183,7 +183,7 @@
 		input[type="submit"].delete-button:hover{
 			background: #771a0b;
 		}
-
+*/
 		.hidden{
 			display: none;
 		}
@@ -291,3 +291,12 @@
 		.cautare-form form{
 			margin-bottom: 0;
 		}
+
+		.response{
+			margin:10px 0 20px 0;
+		}
+
+		.insert-btn{
+			margin-bottom: 30px;
+		}
+	
